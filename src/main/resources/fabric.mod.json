@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "humility-se",
+	"version": "${version}",
+	"name": "Humility SE",
+	"description": "Small mod adding a few easy to understand enchantments.",
+	"authors": [
+		"Mikołaj Pokora"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/MikiP98/HumilitySE"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/humility-se/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.mikip98.HumilitySE"
+		],
+		"client": [
+			"io.github.mikip98.HumilitySEClient"
+		],
+		"fabric-datagen": [
+			"io.github.mikip98.HumilitySEDataGenerator"
+		]
+	},
+	"mixins": [
+		"humility-se.mixins.json",
+		{
+			"config": "humility-se.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.24",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
