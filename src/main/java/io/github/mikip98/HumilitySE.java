@@ -1,7 +1,9 @@
 package io.github.mikip98;
 
 import io.github.mikip98.content.enchantments.DecayEnchantment;
+import io.github.mikip98.content.enchantments.DestructionEnchantment;
 import io.github.mikip98.content.enchantments.FrostEnchantment;
+import io.github.mikip98.content.handlers.BlockBreakEventHandler;
 import io.github.mikip98.content.status_effects.DecayStatusEffect;
 import net.fabricmc.api.ModInitializer;
 
@@ -31,6 +33,8 @@ public class HumilitySE implements ModInitializer {
 //	public static final StatusEffect DECAY_EFFECT = new DecayStatusEffect(); //delete
 	public static StatusEffect DECAY_STATUS_EFFECT;
 
+	// Destruction enchantment
+	public static final Enchantment DESTRUCTION = new DestructionEnchantment();
 
 	@Override
 	public void onInitialize() {
@@ -50,5 +54,9 @@ public class HumilitySE implements ModInitializer {
 //		Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "decay_effect"), DECAY_EFFECT);
 		DECAY_STATUS_EFFECT = Registry.register(Registries.STATUS_EFFECT, new Identifier(MOD_ID, "decay_status_effect"), new DecayStatusEffect());
 
+		// Register destruction enchantment
+		Registry.register(Registries.ENCHANTMENT, new Identifier(MOD_ID, "destruction"), DESTRUCTION);
+
+		BlockBreakEventHandler.init();
 	}
 }
