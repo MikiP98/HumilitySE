@@ -16,12 +16,12 @@ public class DecayEnchantment extends Enchantment {
 
     @Override
     public int getMinPower(int level) {
-        return 25;
-    } // unable to get this enchantment from enchanting table
+        return 0;
+    }
     @Override
     public int getMaxPower(int level) {
-        return 50;
-    } // unable to get this enchantment from enchanting table
+        return 10;
+    }
 
     @Override
     public int getMaxLevel() {
@@ -36,16 +36,14 @@ public class DecayEnchantment extends Enchantment {
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
         if(target instanceof LivingEntity) {
-            ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(HumilitySE.DECAY_STATUS_EFFECT, 40, 1, false, false, false));
+            ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(HumilitySE.DECAY_STATUS_EFFECT, 120, 1, false, false, false));
 
             if(((LivingEntity) target).isUndead()) {
-                ((LivingEntity) target).heal(1);
+                ((LivingEntity) target).heal(2);
             }
-
-            // If entity on fire, extinguish it
-            if(target.isOnFire()) {
-                target.extinguish();
-            }
+//            else {
+//                target.damage(new DamageSources., 1);
+//            }
         }
 
         super.onTargetDamaged(user, target, level);

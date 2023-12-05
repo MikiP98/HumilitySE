@@ -51,7 +51,7 @@
             "entity": "this",
             "predicate": {
               "effects": {
-                "minecraft2:decay_status_effect": {}
+                "humility-se:decay_status_effect": {}
               }
             }
           }
@@ -74,7 +74,7 @@
               "entity": "this",
               "predicate": {
                 "effects": {
-                  "minecraft2:decay_status_effect": {}
+                  "humility-se:decay_status_effect": {}
                 }
               }
             }

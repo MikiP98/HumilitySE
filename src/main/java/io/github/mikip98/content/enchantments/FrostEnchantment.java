@@ -42,6 +42,11 @@ public class FrostEnchantment extends Enchantment {
             ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 8 * (level + 2), level-1));
         }
 
+        // If entity on fire, extinguish it
+        if(target.isOnFire()) {
+            target.extinguish();
+        }
+
         super.onTargetDamaged(user, target, level);
     }
 }
